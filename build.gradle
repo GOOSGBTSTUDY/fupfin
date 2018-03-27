@@ -1,0 +1,18 @@
+group 'com.woowahan'
+version '0.1'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.9
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.1.0'
+    testCompile "org.mockito:mockito-core:2.+"
+    compile group: 'com.googlecode.windowlicker', name: 'windowlicker-swing', version: 'r268'
+    compile group: 'org.igniterealtime.smack', name: 'smack', version: '3.2.1'
+    compile 'io.vavr:vavr:0.9.2'
+}
