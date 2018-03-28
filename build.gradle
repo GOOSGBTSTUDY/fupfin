@@ -14,5 +14,6 @@ dependencies {
     testCompile "org.mockito:mockito-core:2.+"
     compile group: 'com.googlecode.windowlicker', name: 'windowlicker-swing', version: 'r268'
     compile group: 'org.igniterealtime.smack', name: 'smack', version: '3.2.1'
+    compile group: 'org.jooq', name: 'jool', version: '0.9.13'
     compile 'io.vavr:vavr:0.9.2'
 }
