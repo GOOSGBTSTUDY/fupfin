@@ -1,6 +1,6 @@
 package com.woowahan.goosgbt_study.auctionsniper;
 
-import org.jooq.lambda.Unchecked;
+import io.vavr.control.Try;
 
 import static com.woowahan.goosgbt_study.auctionsniper.Main.MainWindow.*;
 
@@ -14,9 +14,9 @@ public class ApplicationRunner
     public void startBiddingIn(final FakeAuctionServer auction)
     {
         Thread thread = new Thread(() -> {
-            Unchecked.runnable(() ->
-                    Main.main(FakeAuctionServer.XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.getItemId())
-            );
+            Try.run(() ->
+                    Main.main(FakeAuctionServer.XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.getItemId()))
+                    .onFailure((t) -> t.printStackTrace());
         }, "Test Application");
         thread.setDaemon(true);
         thread.start();
